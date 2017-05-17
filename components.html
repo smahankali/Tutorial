@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>components</title>
+</head>
+
+<body>
+<h2>Components Of JSF</h2>
+<div style="text-align:center;">
+<ul style="list-style-type:none; margin:0px; padding:0px; text-align:center;"> 
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="introduction.html">Introduction</a></li> 
+        <li style="width:150px; display:table-cell; padding: 1px;"><a href="overview.html">OverView
+        
+        </a>
+          
+        </li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="setup.html">Set Up Environment</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="tags.html">Basic Tags</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="components.html">Components of JSF</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="helloworld.html">HelloWorld Example</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="benefits.html">Benefits</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center; "><a href="references.html">References</a></li>
+    </ul> 
+    </div>
+<h2>Creating JSF HTML Forms Overview</h2>
+<p>In this section, we cover the steps to create HTML forms using JSF UI components.</p>
+<p>We&rsquo;ll cover the following topics:</p>
+<ul>
+  <li>A review of regular HTML forms</li>
+  <li>The idea of JSF UI components</li>
+  <li>A look at JSF page structures</li>
+  <li>How to create forms with JSF</li>
+  <li>Technical details on JSF Form UI components</li>
+</ul>
+<h3>Review of HTML Forms</h3>
+<p>HTML forms are used to get input from the user. We all have used such forms in websites and online applications. They have been around for a long time.</p>
+<p>For example: The sign-in page that asks for your user name and password to log into the Facebook is an HTML form.</p>
+<p>Whenever you input text and other information into websites, HTML forms are used. We can make use of this same technology with JSF UI components.</p>
+<h3>JSF UI Components</h3>
+<p>JSF has components that will generate the HTML for us. To build HTML forms, we can easily make use of JSF UI components.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image072.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image072.jpg" alt="image072" width="1411" height="589"></a></p>
+<p>To build a form, we need a main form container. It is created using h:form. Once the form container is set up, you can add multiple entries like input text, text area, checkboxes, radio buttons, drop-down lists and other form elements.</p>
+<h3>JSF Page Structure</h3>
+<p>When you create a JSF page, the most common configuration is to make use of the files that have an .xhtml extension. You get it out of the box when you do a basic installation of JSF. You can also configure it to use different file extensions. To keep it simple, just use the default .xhtml files.</p>
+<p>The structure of a JSF page is just a normal HTML page with some special tags mixed in. We can have opening and closing &lt;html&gt; tags along with some regular HTML code that is mixed with JSF tags.</p>
+<p>We are also free to use any additional technologies like Cascading Style Sheets 3 (CSS 3) to style elements. We can also add support for JavaScript and use JQuery, or other libraries and frameworks.</p>
+<p>So, when you build a page using JSF, you are not limited to using only JSF tags. If you like, you can easily sprinkle in other supporting technologies like CSS and JavaScript functionality.</p>
+<h3>Creating a Form from Scratch</h3>
+<p>Switch to Eclipse to create an HTML form.</p>
+<p>We can make use of the same project that we have already created for the previous &ldquo;<em>hello world</em>&rdquo; project.</p>
+<p>Add a new file called <em>simple.xhtml</em> to WebContent. We are trying to create a very simple form that asks someone for their first name and last name along with a submit button.</p>
+<p>1. At the beginning, drop the following basic HTML code in the empty file. Notice that xmlns:h="http://xmlns.jcp.org/jsf/html" is a reference to the JSF UI component. Once we have it in place, we can use the special JSF tags.</p>
+<pre><span lang="EN-US">&lt;!DOCTYPE html&gt; 
+ </span><span lang="EN-US">&lt;html lang="en" </span><span lang="EN-US">xmlns="http://www.w3.org/1999/xhtml" </span><span lang="EN-US">xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;  
+</span><span lang="EN-US">&lt;/html&gt;</span></pre>
+<p>2. Next, we have to create the head section, which is built using the JSF component h:head. We also wrap the title of the page inside the &lt;title&gt; HTML element.</p>
+<pre>&lt;h:head&gt;   
+&lt;title&gt;Student Registration Form&lt;/title&gt;
+&lt;/h:head&gt;
+
+
+</pre>
+<p>3. Then we have the actual body section, which uses the h:body UI component. Some components are visible, and some are not. JSF will handle rendering the appropriate HTML for you.</p>
+<pre>&lt;h:body&gt;</pre>
+<pre>&lt;/h:body&gt;</pre>
+<p>4. Inside the body tags, we set up the actual form using the opening and closingh:form tags. It builds the basic form container.</p>
+<pre>&lt;h:form&gt;</pre>
+<pre>&lt;/h:form&gt;</pre>
+<p>5. We need to add in form elements within the form container. For input boxes we make use of h:inputText. It will give a text field where a user can type in some information. We also set a unique id for first name and last name along with value=#{firstName} and value=#{lastName} respectively. The value part sets a request attribute that we can use later in the application.</p>
+<pre><span lang="EN-US">First name: &lt;h:inputText id="firstName" value="#{firstName}" /&gt;  </span><span lang="EN-US">&lt;br/&gt;&lt;br/&gt; 
+</span><span lang="EN-US">Last name: &lt;h:inputText id="lastName" value ="#{lastName}" /&gt;  </span><span lang="EN-US">&lt;br /&gt;&lt;br/&gt;</span></pre>
+<p>6. Moving forward, we put in a reference for the submit button. In the JSF world, they call it a commandButton. The value="Submit" part will actually place a text called<em>Submit</em> on the button.</p>
+<p>&lt;h:commandButton value="Submit" /&gt;</p>
+<p>Here is the full code for the form:</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;  
+&lt;h:head&gt;  &nbsp; 
+&lt;title&gt;Student Registration Form&lt;/title&gt;
+&lt;/h:head&gt; 
+&lt;h:body&gt; 
+&lt;h:form&gt;  
+First name: &lt;h:inputText id="firstName" value ="#{firstName}" /&gt; &lt;br/&gt;&lt;br/&gt; 
+Last name: &lt;h:inputText id="lastName" value ="#{lastName}" /&gt; &lt;br /&gt;&lt;br/&gt;   
+&lt;h:commandButton value="Submit" /&gt;  &nbsp;&nbsp;&nbsp;&nbsp; &lt;/h:form&gt;  &nbsp;&nbsp; &lt;/h:body&gt;  &lt;/html&gt;</pre>
+<h3>Running The Application</h3>
+<p>1. Right-click on <em>simple.xhtml</em> in the <em>Project Explorer</em> and choose <em>Run As &gt; Run on Server</em>. It will start up your local Tomcat server and process the page.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image074.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image074.jpg" alt="image074" width="844" height="453"></a><br>
+  2. A URL like <a href="http://localhost:8080/hello/faces/simple.xhtml">http://localhost:8080/hello/faces/simple.xhtml</a> will open in the embedded browser. It will have the basic form that we set up which asks the user for the first name and last name. It has a submit button below the input boxes.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image076.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image076.jpg" alt="image076" width="733" height="363"></a></p>
+<p>3. Copy the URL <a href="http://localhost:8080/hello/faces/simple.xhtml">http://localhost:8080/hello/faces/simple.xhtml</a> and then drop it into a real web browser to take a look at it. It looks great in a browser. There are two input boxes and a submit button. You can type in any name, like John Doe. It doesn&rsquo;t do much because right now there isn&rsquo;t any real functionality behind it.</p>
+<h3><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image078.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image078.jpg" alt="image078" width="986" height="570"></a><br>
+  How to Reference JSF UI Components</h3>
+<p>New things have been introduced in JSF 2.2 regarding the XML namespace and referencing it in our .xhtml files. We specify the JSF namespace at the beginning of the file. Older tutorials will have some outdated information. What is new in JSF 2.2 is the actual namespace that you have to use for building the applications.</p>
+<p>The important thing to note is that these are unique namespaces that are processed by the server. The namespaces may begin with http:// but there is no requirement to have a real connection to the internet for the UI components to work. The URI is just a unique identifier that is used by the actual server when processing a page.</p>
+<p>Here is the list of the URIs:</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image080.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image080.jpg" alt="image080" width="1536" height="623"></a></p>
+<p>The namespace listed above is for the Core components, HTML components, Facelets components and Composite components. There are more.</p>
+<h2><a id="7"></a>Part 7: JSF Forms and Managed Beans</h2>
+<p>In this section, we cover the steps to use JSF forms and managed beans.</p>
+<p>We&rsquo;ll cover the following topics</p>
+<ul>
+  <li>What are managed beans?</li>
+  <li>Requirements for creating a managed bean</li>
+  <li>How to create a managed bean with code</li>
+  <li>JSF expression language for accessing managed beans</li>
+  <li>How to set a managed bean property from a JSF page</li>
+  <li>How to read a managed bean property from a JSF page</li>
+</ul>
+<h3>What Are Managed Beans?</h3>
+<p>A managed bean is a regular Java class. It is commonly used to hold form data. When a form is submitted, it will hold the form data for you. Managed beans can also be used to hold your business logic.</p>
+<p>The main idea here is that the bean is actually created and managed by JSF. You do not have to manually create it with your code. It will be automatically created by the JSF system – hence, the name Managed Bean.</p>
+<p>An important thing to note is that managed beans should not to be confused with Enterprise Java Beans (EJBs). They are a totally different technology. Do not mix the two of them up.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image082.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image082.jpg" alt="image082" width="1265" height="557"></a></p>
+<p>The diagram above helps us to better understand how managed beans can be used in a JSF application. The <em>student_form.xhtml</em> is a file where the user will enter form data. Once they hit the submit button, JSF will work behind the scenes to set data on a managed bean and it will hold your form data.</p>
+<p>Another page, <em>student_confirmation.xhtml</em>, can access that managed bean and read data from there. Basically, the submitted form data that contains the student&rsquo;s first and last name will be read. It will also give a confirmation page.</p>
+<p>Example: We have a form that asks for the first and last name. We can fill it up with any name, like John Doe.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image084.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image084.jpg" alt="image084" width="753" height="500"></a></p>
+<p>Once we fill it up and hit the <em>Submit</em> button, in the background, JSF will take that form data, use the managed bean and store the information in there. It will take us to our response confirmation page, which will read the information from the managed bean and display it.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image086.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image086.jpg" alt="image086" width="668" height="208"></a></p>
+<h3>Requirements for Managed Beans</h3>
+<p>A managed bean is just a regular Java class that needs to have a public no-argument constructor. It also needs to expose properties via public getter and setter methods. Finally, the class should make use of an annotation<em>@ManagedBean</em>. This is a new feature introduced in JSF 2. In previous versions, all the bean configurations were required to be done using a config file.</p>
+<h3>Creating a Managed Bean</h3>
+<p>Open Eclipse and access the previous project or the &ldquo;hello world&rdquo; project that we have been using so far. If you do not have this beginner project, follow the previous tutorial.</p>
+<p>1. We have to create a new Java class in the Java resources directory. In <em>Project Explorer</em>, under the project name <em>hello</em> navigate to <em>Java Resources &gt; src</em>. Right-click on your package, which may have a name like <em>com.luv2ccode.jsf.hello</em>. In the right-click menu, go to <em>New &gt; Class</em> to create a new class.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image088.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image088.jpg" alt="image088" width="952" height="539"></a></p>
+<p>2. In the <em>New Java Class</em> dialog, give it a name called <em>Student</em>. It will be our managed bean. Then hit the <em>Finish</em> button in the bottom corner.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image090.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image090.jpg" alt="image090" width="842" height="562"></a></p>
+<p>3. The new <em>Student</em> class will be created and filled with some basic information.</p>
+<pre>package com.luv2code.jsf.hello;  public class Student{  }</pre>
+<p>4. Since this is going to be a managed bean, we need to make use of the annotation<em>@ManagedBean</em>.<br>
+  5. An explicit import should be done for this managed bean. Be very careful in Eclipse, as there are two <em>ManagedBean classes</em> — <em>ManagedBean(javax.faces.bean)</em>and <em>ManagedBean (javax.annotation)</em>. Be sure to use the <em>javax.faces.bean</em> package.</p>
+<pre>import javax.faces.bean.ManagedBean;</pre>
+<p>6. Once the proper annotation is imported, create two fields for this class. Create<em>firstName</em> and <em>lastName</em> fields, which are both strings.</p>
+<pre> private String firstName;   private String lastName;</pre>
+<p>7. The next thing we should do is create a no-argument constructor. Create a constructor by using the same name as the class with a no-return type.</p>
+<pre>// create no-arg constructor  public Student(){  }</pre>
+<p>8. Now we have to create getter and setter methods to expose properties. We need to have public getter and setter methods. Instead of manually typing them out, you can use a trick in Eclipse which will automatically generate the source code for you. Just right-click and choose <em>Source &gt; Generate Getters and Setters…</em></p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image092.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image092.jpg" alt="image092" width="1178" height="507"></a><br>
+  9. It will bring up a dialog box, which will give a list of all of your fields that you have. You have the option to select the ones that you want to create getters and setters with. For our project, choose both <em>firstName</em> and <em>lastName</em>. The rest of the options do not need to be changed, so hit OK.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image094.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image094.jpg" alt="image094" width="812" height="644"></a><br>
+  Eclipse will generate the following code:</p>
+<pre>public String getFirstName()
+{  &nbsp;&nbsp;&nbsp; 
+ return firstName; 
+ }  
+public void setFirstName(String firstName)
+{  &nbsp;&nbsp;&nbsp; 
+ this.firstName = firstName; 
+ } 
+public String getLastName()
+{  &nbsp;&nbsp; 
+  return lastName;  
+} 
+public void setLastName(String lastName)
+{  &nbsp;&nbsp; 
+  this.lastName = lastName; 
+ }
+
+</pre>
+<p>Until now, we have a public no argument constructor, getter/setter methods and a managed bean. Everything is lined up just right for us.</p>
+<p>Here&rsquo;s the full code for the <em>Student.java</em> file:</p>
+<pre>package com.luv2code.jsf.hello;
+import javax.faces.bean.ManagedBean;
+    @ManagedBean  public class Student
+{
+  &nbsp; &nbsp; &nbsp; &nbsp;private String firstName;  &nbsp; &nbsp; &nbsp;  
+private String lastName;  &nbsp; &nbsp;  
+ &nbsp;// create no-arg constructor 
+ &nbsp; &nbsp; &nbsp; &nbsp;public Student()
+{     &nbsp; &nbsp; 
+  &nbsp;}  &nbsp; &nbsp; &nbsp;  
+// define getter/setter methods  &nbsp; &nbsp; &nbsp; 
+ public String getFirstName()
+{   &nbsp; &nbsp; &nbsp;  
+return firstName;  
+  &nbsp; &nbsp; &nbsp;}   
+ &nbsp; &nbsp; &nbsp;public void setFirstName(String firstName)
+{   &nbsp; &nbsp; &nbsp;  
+this.firstName = firstName;  &nbsp; &nbsp;  
+ &nbsp;}  &nbsp; &nbsp; &nbsp;  
+public String getLastName()
+{   &nbsp; &nbsp; &nbsp;  
+return lastName;   
+ &nbsp; &nbsp; &nbsp;}  &nbsp; &nbsp; &nbsp; 
+ public void setLastName(String lastName)
+{   &nbsp; &nbsp; &nbsp;  
+this.lastName = lastName;   
+ &nbsp; &nbsp; &nbsp;} 
+ }</pre>
+<h3>JSF Expression Language</h3>
+<p>The JSF Expression language is used to access the properties of a managed bean. You saw this syntax earlier:</p>
+<pre>#{&lt;beanName&gt;.&lt;property&gt;}</pre>
+<p>The basic syntax starts with a # and it is followed by a pair of curly brackets. Inside the brackets, we have &lt;beanName&gt;.&lt;property&gt; which allows us to access a particular property. The access is used to read or set the data.</p>
+<h3>Setting Managed Bean Property from a JSF Page</h3>
+<p>This is an example of setting a managed bean property from a JSF page using form elements:</p>
+<pre>&lt;h:inputText value="#{student.firstName}" /&gt;</pre>
+<p>In the example above, we made use of the inputText form component and we sayvalue="#{student.firstName}".</p>
+<p>What happens is that when you actually submit the form, JSF will call the propertystudent.setFirstName(). Note the property name that is automatically called.</p>
+<h3>Getting a Managed Bean Property from a JSF Page</h3>
+<p>To read or get a bean property using a JSF page, we make use of the JSF expression language as shown in the example below:</p>
+<p>Student's name is: #{student.firstName}</p>
+<p>The #{student.firstName} is used, which contains the bean name student and the property name firstName. In the background, JSF will actually callstudent.getFirstName(). Note the property name again. Methods on our Java bean or managed bean are called in the background when the page is processed.</p>
+<h3>Pulling it All Together</h3>
+<p>Let us pull this all together in our example code. Our example has two JSF pages: student_form.xhtml for entering the data, and student_confirmation.xhtml for displaying it. We will also make use of the managed bean Student that we created before.</p>
+<p>Back in Eclipse, make sure you have these two files: <em>student_form.xhtml</em> and<em>student_response.xhtml</em> inside <em>WebContent &gt; WEB-INF</em>.</p>
+<p>Here is the <strong>student_form.xhtml</strong> file:</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;  
+&lt;h:head&gt;  &nbsp;&nbsp;&nbsp;&nbsp; 
+&lt;title&gt;Student Registration Form&lt;/title&gt;  &nbsp;&nbsp; 
+&lt;/h:head&gt;    &nbsp;&nbsp; 
+&lt;h:body&gt;    &nbsp;&nbsp; 
+&lt;h:form&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+First name: &lt;h:inputText value="#{student.firstName}" /&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;br/&gt;&lt;br/&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Last name: &lt;h:inputText value="#{student.lastName}" /&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;br /&gt;&lt;br /&gt;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&lt;h:commandButton value="Submit" action="student_response" /&gt;  &nbsp;&nbsp; 
+ &lt;/h:form&gt;  &nbsp; 
+ &lt;/h:body&gt;  
+&lt;/html&gt;</pre>
+<p>The <em>student_form.xhtml</em> file contains a lot of code that we have used before. So, let us go directly into the form which is enclosed between the opening and closingh:form tags – i.e., &lt;h:form&gt;&lt;/h:form&gt;.</p>
+<p>After the labels <em>First name:</em> and <em>Last name:</em> we can see that the JSF UI componenth:inputText is used. The values are #{student.firstName} and #{student.lastName}respectively.</p>
+<p>When we submit the form data, in the background, JSF will callstudent.setFirstName() and student.setLastName() methods.</p>
+<p>At the end, we can see that our submit button is created using the JSF UI component h:commandButton. The action="student_response" part tells the code to call the <em>student_response.xhtml</em> confirmation page.</p>
+<p>Now, switch to the <strong>student_response.xhtml</strong> file. Here are its contents:</p>
+<pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang="en"  &nbsp;&nbsp; xmlns="http://www.w3.org/1999/xhtml"  &nbsp;&nbsp; xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;   
+&lt;h:head&gt;  
+&lt;title&gt;Student Confirmation&lt;/title&gt;  
+&lt;/h:head&gt;   
+&lt;h:body&gt;  &nbsp;&nbsp;&nbsp;&nbsp; 
+The student is confirmed: #{student.firstName} #{student.lastName}  &nbsp; 
+ &lt;/h:body&gt;  
+&lt;/html&gt;</pre>
+<p>This is a simple confirmation page that reads the information from the managed bean that we collected and displays it. Enclosed between &lt;h:body&gt; and &lt;/h:body&gt;after the static text The student is confirmed:, we make use of the JSF expression language:</p>
+<pre>#{student.firstName} will call student.getFirstName()  #{student.lastName} will call student.getLastName()</pre>
+<p>This is how a simple confirmation page is set up.</p>
+<h3>Testing the Application</h3>
+<p>Run it in Eclipse. Get the URL and paste it into a browser. We get the form that asks for <em>First name</em> and <em>Last name</em>. Input something like John Doe. Hit the <em>Submit</em>button.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image096.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image096.jpg" alt="image096" width="732" height="464"></a></p>
+<p>The confirmation page will display the following result. Notice how it displayed the entered data by making use of the managed bean in the background.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image098.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image098.jpg" alt="image098" width="805" height="226"></a></p>
+<h2><a id="8"></a>Part 8: JSF Forms and Drop-Down Lists</h2>
+<p>In this section, we cover the steps to use JSF forms and drop-down lists.</p>
+<p>We&rsquo;ll cover the following topics:</p>
+<ul>
+  <li>What drop-down lists are</li>
+  <li>Review of the HTML &lt;select&gt; tag</li>
+  <li>Discussion of some JSF terminology</li>
+  <li>A full JSF page example</li>
+</ul>
+<h3>What Are Drop-Down Lists?</h3>
+<p>A Drop-Down List is a part of a form that lists a number of choices. It is one way to allow users to choose between multiple options.</p>
+<p>We all have seen these before. We can scroll through the list and select the one choice that matches for us. Your selection is set in the form or drop-down list. You can continue filling up the rest of the information and then submit the form.</p>
+<p>Example: A drop-down list where you select your country out of the many available.</p>
+<h2>Review of the HTML &lt;select&gt; Tag</h2>
+<p>In HTML, we create drop-down lists with the help of the <strong>&lt;select&gt;</strong> tag.</p>
+<pre>&lt;select name="country"&gt;  &nbsp; 
+&lt;option&gt;Brazil&lt;/option&gt;  &nbsp; 
+&lt;option&gt;France&lt;/option&gt;  &nbsp; 
+&lt;option&gt;Germany&lt;/option&gt;  &nbsp; 
+&lt;option&gt;India&lt;/option&gt;    
+…  &lt;/select&gt;</pre>
+<p>We have a HTML tag called &lt;select&gt; for which we can set a name. Between the opening and closing select tags, we embed a list of options. Each item on the list is placed between its own opening and closing option tags.</p>
+<p>In the example above, the name of the tag is <em>country</em> and we have options like Brazil, France, Germany and India.</p>
+<p>The above snippet will give us a list that looks something like the one in this form:</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image100.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image100.jpg" alt="image100" width="565" height="425"></a></p>
+<h3>JSF Terminology</h3>
+<p>In the JSF world, a drop-down list is represented by the tag &lt;h:selectOneMenu&gt;. Like its name, it allows us to select one item from a menu.</p>
+<h3>Using the &lt;h:selectOneMenu&gt;</h3>
+<p>Putting this together in JSF:</p>
+<pre><span lang="EN-US">&lt;h:selectOneMenu value="#{studentTwo.country}"&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="Brazil" itemLabel="Brazil" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="France" itemLabel="France" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="Germany" itemLabel="Germany" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="India" itemLabel="India" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="Turkey" itemLabel="Turkey" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="United Kingdom" itemLabel="United Kingdom" /&gt;  </span><span lang="EN-US">  &nbsp;  
+&lt;f:selectItem itemValue="United States" itemLabel="United States" /&gt;  
+</span><span lang="EN-US">&lt;/h:selectOneMenu&gt;</span></pre>
+<p>After the h:selectOneMenu tag, we give the value="#{studentTwo.country}. It is going to be mapped to a managed bean field.</p>
+<p>Then, between the tags we just drop in a list of options. We use the f:selectItem tag and provide an itemValue as well as an itemLabel. itemLabel is the information that will show up on the user&rsquo;s screen. itemValue is the actual code that you can have for that entry.</p>
+<p>In this example, we have used the same itemValue and itemLabel. They can be different, according to what is required.</p>
+<h3>Pulling it All Together</h3>
+<p>We are trying to create a form <em>student_two_form.xhtml</em>. Besides the first and last name, we have a new entry for <em>country</em> as a drop-down list. We will also have a managed bean that we will call StudentTwo. We will additionally have a<em>student_two_response.xhtml</em> file that displays the confirmation. It will show the student&rsquo;s first and last name as well as the selected country.</p>
+<h3>To-Do List</h3>
+<ul>
+  <li>We need to <strong>add a new managed bean</strong> class called <strong>StudentTwo</strong>. It will have the<em>firstName</em>, <em>lastName</em> and a new field called <em>country</em>.</li>
+  <li>We will then <strong>update the form</strong> to make use of the JSF tag <strong>&lt;h:selectOneMenu&gt;</strong>that generates our drop-down list.</li>
+  <li>We also need to <strong>update the confirmation page to display the country</strong> that has been selected. It will say something like <em>The student&rsquo;s country is: India</em>.</li>
+</ul>
+<p>In Eclipse, use the existing project &ldquo;<em>hello</em>&rdquo; that we have been working on. It was created in one of our previous tutorials.</p>
+<p>1. The first thing that we have to do is create a new managed bean. In the <em>Project Explorer</em>, move down to your <em>Java Resources</em>, and right-click on your package to choose <em>New &gt; Class</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image102.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image102.jpg" alt="image102" width="1101" height="371"></a><br>
+  2. In the <em>New Java Class</em> dialog, enter the name of the class as <em>StudentTwo</em>. We will give it a unique name. Keep the rest of the options intact, and click on <em>Finish</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image104.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image104.jpg" alt="image104" width="850" height="527"></a></p>
+<p>3. A basic StudentTwo class is created.</p>
+<pre>package com.luv2code.jsf.hello;  public class StudentTwo{  }</pre>
+<p>4. <em>StudentTwo</em> should be a managed bean, so we add and import the correct items.</p>
+<pre></pre>
+<pre>package com.luv2code.jsf.hello;</pre>
+<pre>import.javax.faces.bean.ManagedBean;</pre>
+<pre>@ManagedBean  public class StudentTwo{</pre>
+<pre>}</pre>
+<p>5. Now, we need to define our fields for first name, last name and country.</p>
+<pre>private String firstName;  
+private String lastName;  
+private String country;</pre>
+<p>6. The next thing that we need to do is create a no-argument constructor.</p>
+<pre>//no-arg constructor  public StudentTwo(){    }</pre>
+<p>7. Now, we need to generate the getters and setters for our fields. It is done to expose the properties to the JSF system. We can do it automatically with Eclipse. Right-click in the text editor, and choose <em>Source &gt; Generate Getters and Setters…</em></p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image106.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image106.jpg" alt="image106" width="929" height="393"></a><br>
+  8. In the dialog box, select all the three fields—country, firstName and lastName. Hit <em>OK</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image108.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image108.jpg" alt="image108" width="886" height="217"></a></p>
+<p>9. The following new lines of code are added automatically.</p>
+<pre>public String getFirstName()
+{  &nbsp;&nbsp;&nbsp;&nbsp; 
+return firstName;  
+}  
+public void setFirstName(String firstName)
+{  &nbsp;&nbsp;&nbsp;&nbsp; 
+this.firstName = firstName;  
+}  
+public String getLastName()
+{  &nbsp;&nbsp;&nbsp;&nbsp; 
+return lastName;  
+}  
+public void setLastName(String lastName)
+{  &nbsp;&nbsp;&nbsp; 
+ this.lastName = lastName;  
+}  
+public String getCountry()
+{  &nbsp;&nbsp;&nbsp;&nbsp; 
+return country; 
+ }  
+public void setCountry(String country)
+{  &nbsp;&nbsp;&nbsp;&nbsp; 
+this.country = country;  
+}</pre>
+<p>We have getter and setter methods for FirstName, LastName, and Country. The bean is now taken care of.</p>
+<h3>Full Code</h3>
+<p>Here is the full content of the <em>StudentTwo.java</em> file:</p>
+<pre>package com.luv2code.jsf.hello;    
+import.javax.faces.bean.ManagedBean;    
+@ManagedBean  public class StudentTwo{  &nbsp; &nbsp; 
+ private String firstName;   &nbsp; &nbsp;  
+private String lastName;   &nbsp; &nbsp;  
+private String country;  &nbsp; &nbsp;  
+//no-arg constructor   &nbsp; &nbsp;  
+public StudentTwo(){  &nbsp; &nbsp; &nbsp;}    &nbsp;  
+//getter/setter methods   &nbsp; &nbsp; 
+ public String getFirstName(){   &nbsp; &nbsp; 
+ return firstName;   &nbsp; &nbsp;  
+}  &nbsp; &nbsp;  
+public void setFirstName(String firstName)
+{   &nbsp; &nbsp;  
+this.firstName = firstName;   &nbsp; &nbsp;  
+}  &nbsp; &nbsp;  
+public String getLastName()
+{   &nbsp; &nbsp;  
+return lastName;   &nbsp; &nbsp;  
+}  &nbsp; &nbsp;  
+public void setLastName(String lastName)
+{   &nbsp; &nbsp; 
+ this.lastName = lastName;   &nbsp; &nbsp;  
+}  &nbsp; &nbsp;  
+public String getCountry()
+{   &nbsp; &nbsp;  
+return country;   &nbsp; &nbsp;  
+}  &nbsp; &nbsp;  
+public void setCountry(String country)
+{   &nbsp; &nbsp;  
+this.country = country;   &nbsp; &nbsp;  
+}  
+}</pre>
+<h3><span lang="EN-US">Form Page</span></h3>
+<p>Inside the WebContent directory, choose <em>student_two_form.xhtml</em>. Create the file if you need to.</p>
+<pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang="en"  xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://xmlns.jcp.org/jsf/html"    xmlns:f="http://xmlns.jcp.org/jsf/core"&gt;  &nbsp; &nbsp; &nbsp; 
+&lt;h:head&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;title&gt;Student TWO Registration Form&lt;/title&gt;   &nbsp; &nbsp; &nbsp; 
+&lt;/h:head&gt;  &nbsp; &nbsp; &nbsp; 
+&lt;h:body&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;h:form&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+First name: &lt;h:inputText value="#{studentTwo.firstName}" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;br/&gt;&lt;br/&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+Last name: &lt;h:inputText value="#{studentTwo.lastName}" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;br/&gt;&lt;br/&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+Country:   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;h:selectOneMenu value="#{studentTwo.country}"&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="Brazil" itemLabel="Brazil" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="France" itemLabel="France" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="Germany" itemLabel="Germany" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="India" itemLabel="India" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="Turkey" itemLabel="Turkey" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="United Kingdom" itemLabel="United Kingdom" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;f:selectItem itemValue="United States" itemLabel="United States" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;/h:selectOneMenu&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;br/&gt;&lt;br/&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;h:commandButton value="Submit" action="student_two_response" /&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&lt;/h:form&gt;  &nbsp; &nbsp; &nbsp; 
+&lt;/h:body&gt;  
+&lt;/html&gt;</pre>
+<p>The code is pretty much all the standard code that we have been writing up to this point. What is added in this is the code for country. We have set up h:selectOneMenuto display a drop-down menu which lists a number of countries that a user can select. We bind the menu to #{studentTwo.country}. We have listed different values and options under it.</p>
+<p>Remember, in the <em>studentTwo</em> class we have a field called <em>country</em>. When the submit button is pressed, the studentTwo.setCountry() method is called. It has the public getter and setter methods to read and write to our managed bean. This is pretty much our form.</p>
+<p>At the end we have a submit button and an action which will send it over to a new page, <em>student_two_response.xhtml</em>. We don&rsquo;t give an extension in the code, as JSF will automatically look for the page.</p>
+<h3>Confirmation Page</h3>
+<p>Our confirmation page is <em>student_two_response.xhtml</em>. Navigate to it from the<em>Project Explorer</em> window under the <em>WebContent</em> directory.</p>
+<pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang="en"&nbsp;xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"&gt;    &nbsp;&nbsp; 
+&lt;h:head&gt;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+&lt;title&gt;Student TWO Confirmation&lt;/title&gt;  &nbsp;&nbsp;&nbsp;  
+&lt;/h:head&gt;  &nbsp;&nbsp; 
+&lt;h:body&gt;  &nbsp;&nbsp; 
+The student is confirmed: #{studentTwo.firstName} #{studentTwo.lastName}  &nbsp;&nbsp; &lt;br /&gt;&lt;br /&gt;  &nbsp;  &nbsp;&nbsp; 
+The student's country: #{studentTwo.country}  &nbsp;  &nbsp;&nbsp; 
+&lt;/h:body&gt; 
+&lt;/html&gt;</pre>
+<p>After the student&rsquo;s first and last name confirmation, we have a new line which displays the student&rsquo;s country.</p>
+<p>The value is displayed by #{studentTwo.country}. It will actually talk to the managed bean, call the getter method studentTwo.getCountry() and the results will be displayed on the page.<br>
+  When you run the application, we are shown a form that asks for a first name, last name and a selectable country in the drop-down menu. Enter the first and last name, choose a country and hit the <em>Submit</em> button.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image110.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image110.jpg" alt="image110" width="643" height="416"></a></p>
+<p>In the confirmation page, we get the information that is entered: first name, last name and the country that was selected from the drop-down.</p>
+<h3><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image112.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image112.jpg" alt="image112" width="627" height="257"></a></h3>
+<br>
+</body>
+</html>

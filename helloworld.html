@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>helloworld.html</title>
+</head>
+
+<body>
+<h2>JSF – Hello World</h2>
+<div style="text-align:center;">
+<ul style="list-style-type:none; margin:0px; padding:0px; text-align:center;"> 
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="introduction.html">Introduction</a></li> 
+        <li style="width:150px; display:table-cell; padding: 1px;"><a href="overview.html">OverView
+        
+        </a>
+          
+        </li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="setup.html">Set Up Environment</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="tags.html">Basic Tags</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="components.html">Components of JSF</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="helloworld.html">HelloWorld Example</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center;"><a href="benefits.html">Benefits</a></li>
+        <li style="width:150px; display:table-cell; padding:1px; text-align:center; "><a href="references.html">References</a></li>
+    </ul> 
+    </div>
+<p>In this section, we&rsquo;ll cover the steps to create a <em>Hello World</em> program with JSF.</p>
+<h3>Development Environment Checkpoint</h3>
+<p>To build a hello world program, you need to have all of these installed:</p>
+<ul>
+  <li>Apache Tomcat</li>
+  <li>Eclipse (Java EE version)</li>
+  <li>Connected Eclipse to Tomcat</li>
+</ul>
+<h3>Creating Hello World In JSF</h3>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image014.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image014.jpg" alt="image014" width="674" height="462"></a></p>
+<p>We are going to create a simple hello world program with JSF.</p>
+<p>We&rsquo;ll start with an HTML form in the first page <em>hello-world.xhtml</em>. It will prompt a user for their name. After the user types a name and hits the <em>Submit</em> button, a response page called <em>myresponse.xhtml</em> will say <em>Hello</em>, and then whatever name the user entered.</p>
+<h3>Download Source Code</h3>
+<p>The source code for this tutorial is available at the following <a href="http://www.luv2code.com/jsf-source-code" target="_blank">link</a>:</p>
+<h3>Creating a New Project In Eclipse</h3>
+<p>The first thing that we are going to do is create a new project.</p>
+<p>1. Open up Eclipse and go to <em>File &gt; New &gt; Dynamic Web Project</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image016.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image016.jpg" alt="image016" width="1509" height="569"></a></p>
+<p>2. It will bring up a dialogue box where you can enter the <em>Project name</em>. Enter the name <em>hello</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image018.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image018.jpg" alt="image018" width="917" height="369"></a></p>
+<p>3. Make sure that <em>Apache Tomcat</em> is already selected for the <em>Target runtime</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image020.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image020.jpg" alt="image020" width="367" height="228"></a></p>
+<p>4. In the <em>Configuration</em> section, click the <em>Modify</em> button on the far right to add support for JSF 2.2.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image022.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image022.jpg" alt="image022" width="855" height="155"></a></p>
+<p>5. In <em>Project Facets</em>, in the middle of the screen there is a link for <em>JavaServer Faces 2.2.</em> Check the box to select it.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image024.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image024.jpg" alt="image024" width="660" height="218"></a></p>
+<p>6. Hit <em>OK</em> to confirm.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image026.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image026.jpg" alt="image026" width="198" height="155"></a></p>
+<p>7. Click <em>Next</em> to move to the next step of creating a project.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image028.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image028.jpg" alt="image028" width="167" height="108"></a></p>
+<p>8. For the output directories, you can keep the default values. Click <em>Next</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image028.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image028.jpg" alt="image028" width="167" height="108"></a></p>
+<p>9. For the Context root, it is the actual name that we will use in the URL for our application. Keep it as hello. Check the box that says <em>Generate web.xml deployment descriptor</em>. Click<em> Next</em>.</p>
+<p><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image031.jpg" alt="image031" width="644" height="344"></p>
+<p>10. Give a reference for the <em>User Library</em> that you will use for JSF. We don&rsquo;t actually have it on our system from the start. Download it from Oracle&rsquo;s website, clicking the <em>Download library</em> button present at the far right. It looks like a floppy disk.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image033.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image033.jpg" alt="image033" width="387" height="228"></a></p>
+<p>11. It will give you a list of libraries that can be downloaded. Select the library <em>JSF 2.2 (Mojarra 2.2.0)</em> that is provided by <em>Oracle Corporation</em>. It will download the files from the official Oracle website to your local file system. Click <em>Next</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image035.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image035.jpg" alt="image035" width="720" height="465"></a></p>
+<p>12. Accept the terms of license agreement for the download and hit<em> Finish</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image037.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image037.jpg" alt="image037" width="720" height="467"></a></p>
+<p>13. The actual download process will start. You can see the progress bar for it. Once completed, you will have JSF 2.2 downloaded from Oracle.</p>
+<p>14. If you are using Tomcat, check the <em>Include libraries with the application</em> option to include it in your application. If you are using <em>JBoss</em> or <em>GlassFish</em>, you don&rsquo;t have to include them.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image039.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image039.jpg" alt="image039" width="1280" height="720"></a></p>
+<p>15. Moving down, you will see important settings like <em>JSF Configation File, JSF Servlet Name, JSF Servlet Class Name</em> and <em>URL Mapping Patterns</em>. The faces servlet will have a reference for URL mapping. Anything that comes in <em>/faces/</em> will be routed through the JSF faces servlet.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image041.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image041.jpg" alt="image041" width="1179" height="552"></a></p>
+<p>16. Hit <em>Finish</em> at the end to complete creating the project. We will have our basic project set up for us.</p>
+<h3>Creating the HTML Form</h3>
+<p>Now you have a new project. The first thing that needs to be done is creating an HTML form to allow users to input and submit their name. With JSF, all the pages are written using the .xhtml extension.</p>
+<p>1. In <em>Project Explorer</em>, move your mouse to the <em>WebContent</em> folder, right-click on it and select <em>New &gt; HTML File</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image043.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image043.jpg" alt="image043" width="1083" height="563"></a></p>
+<p>2. This new file will be called <em>hello-world.xhtml</em> which will have our actual input form. So, enter the file name as <em>hello-world.xhtml</em> and click <em>Next</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image045.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image045.jpg" alt="image045" width="879" height="209"></a></p>
+<p>3. You can choose an actual template out of the many available. It is not really important for our example. For now, choose the one that says <em>New Facelet Template</em> and click <em>Finish</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image047.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image047.jpg" alt="image047" width="883" height="554"></a></p>
+<p>4. Since we&rsquo;ve chosen a template, it will give us some lines that we don&rsquo;t need. Select all text, right-click and choose <em>Cut</em> to wipe it. We finally have a blank file.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image049.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image049.jpg" alt="image049" width="821" height="417"></a></p>
+<p>Add the following code:</p>
+<pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"&gt;    &nbsp; &nbsp; &lt;h:head&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &lt;title&gt;Hello World - Input Form&lt;/title&gt;  &nbsp; &nbsp; &lt;/h:head&gt;  &nbsp; &nbsp; &lt;h:body&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &lt;h:form&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h:inputText id="name" value="#{theUserName}" a:placeholder="What's your name" /&gt;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h:commandButton value="Submit" action="myresponse" /&gt;  &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h:form&gt;   &nbsp; &nbsp; &lt;/h:body&gt;  &lt;/html&gt;</pre>
+<p>1. The first five lines of code contain the reference for JSF custom tags. JSF has a collection of tags that generates HTML content automatically. We will make use of such tags in our <em>hello-world.xhtml</em> file.</p>
+<p>2. After the tag reference, the HTML head section is set up. It is created using HTML custom tags from JSF.</p>
+<pre>&lt;h:head&gt;  &nbsp;&nbsp; 
+&lt;title&gt;Hello World - Input Form&lt;/title&gt;  
+/h:head&gt;</pre>
+<p>3. Then below it is the actual body of the HTML page, which is also built using JSF custom tags. The code for the form is placed between the &lt;h:body&gt; and &lt;/h:body&gt;custom tags.<br>
+4. This lines of code starting from &lt;h:form&gt; to &lt;/h:form&gt; render the form.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image051.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image051.jpg" alt="image051" width="442" height="72"></a></p>
+<p>5. This code gives us the input text field. It has the <em>id </em>called <em>name</em>. It will bind the<em>value</em> to a request parameter called <em>theUserName</em>. The <em>placeholder</em> is also there to prompt <em>What&rsquo;s your name</em> on the input box.</p>
+<pre>&lt;h:inputText id="name" value="#{theUserName}" a:placeholder="What's your name" /&gt;</pre>
+<p>6. This code creates a <em>Submit</em> button. The action is <em>myresponse</em>. So, it will actually submit to a page called <em>myresponse.xhtml</em>.</p>
+<pre>&lt;h:commandButton value="Submit" action="myresponse" /&gt;</pre>
+<p>This is how the form is set up to take in a name and submit the data to a second page.</p>
+<h3>Creating the Response Page</h3>
+<p>Now, let&rsquo;s create the response page <em>myresponse.xhtml</em>.</p>
+<p>1. In the <em>Project Explorer</em>, go to <em>WebContent</em>, right-click on it and select <em>New &gt; HTML File</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image053.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image053.jpg" alt="image053" width="941" height="539"></a></p>
+<p>2. Enter the File name: <em>myresponse.xhtml</em> and hit <em>Next</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image055.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image055.jpg" alt="image055" width="931" height="218"></a></p>
+<p>3. Choose <em>New Facelet template</em> and hit <em>Finish</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image057.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image057.jpg" alt="image057" width="467" height="293"></a></p>
+<p>4. In the newly created file <em>myresponse.xhtml</em>, select and clear all the text. Right-click and choose<em> Cut</em> to remove everything.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image058.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image058.jpg" alt="image058" width="819" height="423"></a></p>
+<p>Put the following code in the blank file:</p>
+<pre>&lt;!DOCTYPE html&gt;  
+&lt;html lang ="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" &gt;    &nbsp;&nbsp; 
+&lt;h:head&gt;  &nbsp;&nbsp;&nbsp;&nbsp; 
+&lt;title&gt;Hello World – Response&lt;/title&gt;  &nbsp;&nbsp; 
+&lt;/h:head&gt;  &nbsp;&nbsp; 
+&lt;h:body&gt;  &nbsp;&nbsp;&nbsp;&nbsp; Hello, #{theUserName}  &nbsp;&nbsp; &lt;/h:body&gt;  
+&lt;/html&gt;</pre>
+<p>1. Like in the previous file, we start off with the reference for the JSF custom tag. We are just using a single tag for HTML.</p>
+<pre>&lt;html lang ="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" &gt;</pre>
+<p>2. Next, our basic header is set up, which adds a title to the page.</p>
+<pre>&lt;h:head&gt;    &lt;title&gt;Hello World – Response&lt;/title&gt;  &lt;/h:head&gt;</pre>
+<p>3. The body comes next. We need to say <em>Hello</em> and we&rsquo;re going to give the actual user name that was submitted in the HTML form. The code #{theUserName} displays the submitted form data.</p>
+<pre>&lt;h:body&gt;     Hello, #{theUserName}  &lt;/h:body&gt;</pre>
+<h3>Running The Application</h3>
+<p>1. Select the file <em>hello-world.xhtml</em> from the <em>Project Explorer</em>. Right-click on it and choose <em>Run As &gt; Run on Server</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image060.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image060.jpg" alt="image060" width="740" height="720"></a></p>
+<p>2. It will run the application, and we will see it on the browser that is inside of Eclipse. If you look at the URL in the address bar, it is<a href="http://localhost:8080/hello/faces/hello-world.xhtml" target="_blank">http://localhost:8080/hello/faces/hello-world.xhtml</a>. The <em>/faces/hello-world.xhtml</em> tells us that it is all being passed through the JSF Faces servlet.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image062.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image062.jpg" alt="image062" width="1276" height="600"></a></p>
+<p>3. Type a name in the input box – something like <em>John Doe</em>, for example – and hit<em>Submit</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image064.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image064.jpg" alt="image064" style="width:499; height:68"></a></p>
+<p>4. We get the response <em>Hello, John Doe</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image066.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image066.jpg" alt="image066" width="963" height="360"></a></p>
+<p>5. We can take the URL <a href="http://localhost:8080/hello/faces/hello-world.xhtml" target="_blank">http://localhost:8080/hello/faces/hello-world.xhtml</a>and try it on a real browser. Copy it and select paste &amp; go in the address bar of your browser. It gives the actual form that we saw earlier in the embedded browser. Type a name like <em>Mary Public</em> and hit <em>Submit</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image068.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image068.jpg" alt="image068" width="800" height="285"></a></p>
+<p>6. It will give the output <em>Hello, Mary Public</em>.</p>
+<p><a href="https://blog.udemy.com/wp-content/uploads/2015/09/image070.jpg"><img src="https://blog.udemy.com/wp-content/uploads/2015/09/image070.jpg" alt="image070" width="678" height="375"></a><br>
+  It works as per our design.</p>
+  <a href="references.html">[2]</a>
+</body>
+</html>
